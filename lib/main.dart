@@ -1,14 +1,15 @@
-import 'package:material_ui/material_ui.dart';
+import 'package:flutter/material.dart';
 
-// TODO 1: Replace 'Your Name' with your own name.
-const String studentName = 'Your Name';
+const String studentName = 'Muhammad Bilal Naeem';
 
-// TODO 2: Finish this function. It must return:
-//   'Good morning'   when hour is less than 12,
-//   'Good afternoon' when hour is less than 17,
-//   'Good evening'   for every other hour.
 String greetingFor(int hour) {
-  return 'Hello';
+  if (hour < 12) {
+    return 'Good morning';
+  } else if (hour < 17) {
+    return 'Good afternoon';
+  } else {
+    return 'Good evening';
+  }
 }
 
 void main() {
@@ -24,7 +25,7 @@ class HelloApp extends StatelessWidget {
       title: 'Hello Flutter',
       theme: ThemeData(colorSchemeSeed: Colors.teal),
       home: Scaffold(
-        appBar: AppBar(title: const Text('Week 1: Hello Flutter')),
+        appBar: AppBar(title: const Text('Week 1: Automatic Time')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

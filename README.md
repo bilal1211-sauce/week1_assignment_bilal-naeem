@@ -1,41 +1,95 @@
-# Hello Flutter: week 1 starter
+# Week 1: Hello Flutter
 
-This is the starter app for week 1 of Mobile Application Development.
+Mobile Application Development, Assignment 1: run your first Flutter app on your phone.
 
-This project needs Flutter 3.50.0 or newer. Use the latest stable version.
+| | |
+|---|---|
+| Student | Bilal Naeem |
+| GitHub | [bilal1211-sauce](https://github.com/bilal1211-sauce) |
+| Repository | [week1_assignment_bilal-naeem](https://github.com/bilal1211-sauce/week1_assignment_bilal-naeem) |
+| Starter code | Course template [hashirshoaeb/mad-01-hello-flutter](https://github.com/hashirshoaeb/mad-01-hello-flutter) |
+| Phone | Samsung Galaxy A73 5G (SM A736B), Android 16 |
+| Laptop | Windows 11 Pro, 64-bit |
+
+## What the app does
+
+The app shows the Flutter logo, a greeting for the time of day with my name (for example **Good afternoon, Muhammad Bilal Naeem!**), and the text "Mobile Application Development, week 1".
+
+- **TODO 1:** `studentName` holds my name.
+- **TODO 2:** `greetingFor(hour)` returns `Good morning` before 12, `Good afternoon` before 17, and `Good evening` for every other hour.
+
+## My screenshot
+
+![The app running on my phone](screenshot.jpg)
 
 ## How to run
 
-1. Connect your Android phone to your laptop with a USB cable. USB debugging must be on.
-2. Open a terminal in this folder and run these two commands:
+This project needs Flutter 3.50.0 or newer.
+
+1. Connect an Android phone with a USB cable. USB debugging must be on.
+2. In this folder, run:
 
    ```bash
    flutter pub get
    flutter run
    ```
 
-The first build takes several minutes. Then your phone shows "Hello, Your Name!".
-
-## Your two tasks
-
-Open `lib/main.dart`. Do `TODO 1` and `TODO 2`. The handout explains each step.
+The first build takes several minutes.
 
 ## Tests
-
-Run the tests with this command:
 
 ```bash
 flutter test
 ```
 
-The five `greetingFor` tests fail until you finish `TODO 2`. This is expected. When `TODO 2` is done, the last line says "All tests passed!".
+## My toolchain
 
-## My screenshot
+| Tool | Version |
+|---|---|
+| Flutter | 3.50.0 (channel stable) |
+| Dart | 3.14.0 |
+| Git | 2.51.2.windows.1 |
+| VS Code | 1.146.0 |
+| Android SDK | 36.0.0 |
+| Android NDK | 28.2.13676358 |
 
-![The app on my phone](screenshot.jpg)
+## Check results
 
-Replace this picture with your own. Take a screenshot of the app on your phone, name it `screenshot.jpg`, and put it in the top folder of this repository, next to this README.
+### `flutter test`
+
+```
+00:03 +4: greetingFor(12) is Good afternoon
+00:03 +5: greetingFor(17) is Good evening
+00:03 +6: All tests passed!
+```
+
+### `flutter analyze`
+
+```
+<FLUTTER_ANALYZE_OUTPUT>
+```
+
+### `flutter doctor`
+
+```
+[√] Flutter (Channel stable, 3.50.0, on Microsoft Windows [Version 10.0.26300.9974], locale en-PK)
+[√] Windows Version (Windows 11 or higher, 26H2, 2009)
+[√] Android toolchain - develop for Android devices (Android SDK version 36.0.0)
+[√] Chrome - develop for the web
+[!] Visual Studio - develop Windows apps (Visual Studio Build Tools 2022 17.14.31 (April 2026))
+[√] Connected device (3 available)
+[√] Network resources
+```
+
+The Visual Studio line is only for Windows desktop apps. This course builds Android apps, so it doesn't matter here.
+
+## Problems I hit and how I fixed them
+
+1. **Gradle: "Timeout waiting for exclusive access to file".** A download that had stopped earlier left a lock behind. I closed every Java process, deleted the half-downloaded Gradle folder in `.gradle\wrapper\dists`, and ran the build again.
+2. **Gradle: "An established connection was aborted".** My internet dropped during Gradle's own download, and that download can't resume. I ran it again on a steadier connection.
+3. **"Android sdkmanager did not install NDK 28.2.13676358".** I installed NDK 28.2.13676358 myself, then the build passed.
+4. **Spaces in the Flutter path.** My Flutter folder was in `D:\Mobile App Developer\`. Flutter's guide says not to use a path with spaces, so I moved it to a folder without spaces and updated my PATH.
 
 ## AI note
 
-Replace this line with one sentence that says what you asked AI, or write "I didn't use AI".
+I asked Claude to explain my setup errors (Gradle download, NDK, PATH), and used Claude Code to fill in this README, take the screenshot over adb and push to GitHub; I wrote `studentName` and `greetingFor` myself.
